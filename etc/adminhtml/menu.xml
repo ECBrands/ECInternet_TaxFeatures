@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="ECInternet_TaxFeatures::tax_features"
+		     title="Tax Features"
+		     module="ECInternet_TaxFeatures"
+		     sortOrder="230"
+		     parent="ECInternet_Base::base"
+		     resource="ECInternet_TaxFeatures::tax_features"
+		/>
+
+		<add id="ECInternet_TaxFeatures::settings"
+		     title="Settings"
+		     module="ECInternet_TaxFeatures"
+		     sortOrder="230"
+		     parent="ECInternet_TaxFeatures::tax_features"
+		     action="adminhtml/system_config/edit/section/tax_features"
+		     resource="ECInternet_TaxFeatures::settings"
+		/>
+	</menu>
+</config>

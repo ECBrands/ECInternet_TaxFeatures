@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<!-- afterGetCustomerTaxClassId() -->
+	<type name="Magento\Quote\Model\Quote">
+		<plugin name="ecinternet_taxfeatures-quote_model_quote_plugin"
+		        type="ECInternet\TaxFeatures\Plugin\Quote\Model\QuotePlugin" />
+	</type>
+
+	<!-- Custom Logger -->
+	<type name="ECInternet\TaxFeatures\Logger\Logger">
+		<arguments>
+			<argument name="name" xsi:type="string">TaxFeatures</argument>
+			<argument name="handlers" xsi:type="array">
+				<item name="system" xsi:type="object">ECInternet\TaxFeatures\Logger\Handler</item>
+			</argument>
+		</arguments>
+	</type>
+</config>
