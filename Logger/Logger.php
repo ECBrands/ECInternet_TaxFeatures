@@ -14,7 +14,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
  */
 class Logger extends \Monolog\Logger
 {
-    const CONFIG_PATH_DEBUG_LOGGING = 'tax_features/general/debug_logging';
+    private const CONFIG_PATH_DEBUG_LOGGING = 'tax_features/general/debug_logging';
 
     /**
      * @var \Magento\Framework\App\Config\ScopeConfigInterface
@@ -30,7 +30,7 @@ class Logger extends \Monolog\Logger
      * @param array                                              $processors
      */
     public function __construct(
-        $name,
+        string $name,
         ScopeConfigInterface $config,
         array $handlers = [],
         array $processors = []
@@ -40,12 +40,12 @@ class Logger extends \Monolog\Logger
         $this->config = $config;
     }
 
-    public function addRecord($level, $message, array $context = [])
+    public function addRecord(int $level, string $message, array $context = [], DateTimeImmutable $datetime = null): bool
     {
         if (!$this->config->isSetFlag(self::CONFIG_PATH_DEBUG_LOGGING)) {
             return false;
         }
 
-        return parent::addRecord($level, $message, $context);
+        return parent::addRecord($level, $message, $context, $datetime);
     }
 }
