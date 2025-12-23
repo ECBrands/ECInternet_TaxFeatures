@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace ECInternet\TaxFeatures\Logger;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Monolog\DateTimeImmutable;
 
 /**
  * Logger channel
